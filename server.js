@@ -15,6 +15,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
+
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -118,7 +119,7 @@ io.on('connection', socket => {
   socket.on('chatMessage', msg => {
     startDemo();
     const user = getCurrentUser(socket.id);
-
+    
     io.to(user.room).emit('message', formatMessage(user.username, msg));
   });
 
