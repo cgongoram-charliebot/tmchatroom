@@ -1,3 +1,4 @@
 node_modules/
 ignore/ 
+autobot/
 .DS_Store
